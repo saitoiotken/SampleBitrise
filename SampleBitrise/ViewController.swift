@@ -8,6 +8,8 @@
 
 import UIKit
 import XLPagerTabStrip
+import SwiftyJSON
+import Alamofire
 
 class ViewController: UIViewController {
 

@@ -17,6 +17,8 @@
 		F552E922211E386300D09FD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F552E920211E386300D09FD7 /* LaunchScreen.storyboard */; };
 		F552E92D211E386300D09FD7 /* SampleBitriseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E92C211E386300D09FD7 /* SampleBitriseTests.swift */; };
 		F552E938211E386300D09FD7 /* SampleBitriseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F552E937211E386300D09FD7 /* SampleBitriseUITests.swift */; };
+		F57E5007211F3C110030080F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57E5006211F3C110030080F /* SwiftyJSON.framework */; };
+		F57E5009211F3C1C0030080F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F57E5008211F3C1C0030080F /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		F552E933211E386300D09FD7 /* SampleBitriseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleBitriseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F552E937211E386300D09FD7 /* SampleBitriseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBitriseUITests.swift; sourceTree = "<group>"; };
 		F552E939211E386300D09FD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F57E5006211F3C110030080F /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		F57E5008211F3C1C0030080F /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F57E5009211F3C1C0030080F /* Alamofire.framework in Frameworks */,
+				F57E5007211F3C110030080F /* SwiftyJSON.framework in Frameworks */,
 				F31306AD1F8848010853ED6B /* Pods_SampleBitrise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +98,8 @@
 		24CC0BC49E525DBE4AE49183 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F57E5008211F3C1C0030080F /* Alamofire.framework */,
+				F57E5006211F3C110030080F /* SwiftyJSON.framework */,
 				0919363F34EB3C569ABADF22 /* Pods_SampleBitrise.framework */,
 				5BD939FE434C7692A14179A5 /* Pods_SampleBitriseTests.framework */,
 				BC6452C42567F1AE58510F76 /* Pods_SampleBitriseUITests.framework */,
@@ -177,6 +185,7 @@
 				F552E911211E386300D09FD7 /* Frameworks */,
 				F552E912211E386300D09FD7 /* Resources */,
 				D6015A2D9543D55DB0EA07E7 /* [CP] Embed Pods Frameworks */,
+				F57E500A211F3C520030080F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -371,6 +380,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleBitrise/Pods-SampleBitrise-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F57E500A211F3C520030080F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -534,6 +558,10 @@
 			baseConfigurationReference = 063C9A40EBF73A2524ADD718 /* Pods-SampleBitrise.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SampleBitrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hoge.SampleBitrise;
@@ -547,6 +575,10 @@
 			baseConfigurationReference = 14FA9217A7496D3FB267BED8 /* Pods-SampleBitrise.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SampleBitrise/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = hoge.SampleBitrise;
@@ -632,6 +664,7 @@
 				F552E93E211E386300D09FD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F552E93F211E386300D09FD7 /* Build configuration list for PBXNativeTarget "SampleBitriseTests" */ = {
 			isa = XCConfigurationList;
@@ -640,6 +673,7 @@
 				F552E941211E386300D09FD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F552E942211E386300D09FD7 /* Build configuration list for PBXNativeTarget "SampleBitriseUITests" */ = {
 			isa = XCConfigurationList;
@@ -648,6 +682,7 @@
 				F552E944211E386300D09FD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
